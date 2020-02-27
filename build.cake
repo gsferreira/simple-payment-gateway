@@ -38,7 +38,14 @@ Task("Unit-Tests")
     DotNetCoreTest("./PaymentGateway/test/PaymentGateway.UnitTests/PaymentGateway.UnitTests.csproj");
 });
 
+Task("Functional-Tests")
+    .IsDependentOn("Unit-Tests")
+    .Does(() =>
+{
+    DotNetCoreTest("./PaymentGateway/test/PaymentGateway.FunctionalTests/PaymentGateway.FunctionalTests.csproj");
+});
+
 Task("Default")
-    .IsDependentOn("Unit-Tests");
+    .IsDependentOn("Functional-Tests");
 
 RunTarget(target);
