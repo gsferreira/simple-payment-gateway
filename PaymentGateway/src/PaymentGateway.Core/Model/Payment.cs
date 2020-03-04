@@ -14,7 +14,14 @@ namespace PaymentGateway.Core.Model
 
         public Payment(decimal amount, string currency, PaymentCard paymentCard)
         {
-            ApplyChange(new PaymentCreated(Guid.NewGuid(), amount, currency, paymentCard));
+            if (amount <=0) throw new ArgumentException("Payment amount can't be zero or negative.",nameof(amount));
+            if (string.IsNullOrEmpty(currency)) throw new ArgumentNullException(nameof(currency));
+            if (paymentCard == null) throw new ArgumentNullException(nameof(paymentCard));
+
+            ApplyChange(new PaymentCreated(Guid.NewGuid(), 
+                amount, 
+                currency, 
+                paymentCard));
         }
 
         public Guid Id { get; private set; }
