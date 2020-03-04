@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 using PaymentGateway.Core.Model;
-using PaymentGateway.SharedKernel;
 
-namespace PaymentGateway.Core.Commands
+namespace PaymentGateway.Api.Application.Commands
 {
     public class PaymentCommand : IRequest<Payment>
     {

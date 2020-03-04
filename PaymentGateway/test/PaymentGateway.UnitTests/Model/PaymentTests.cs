@@ -45,5 +45,17 @@ namespace PaymentGateway.UnitTests.Model
             );
         }
 
+        [Fact]
+        public void Create_WithExpiredCard_FailsWithException()
+        {
+            var expiredDate = DateTime.Today.AddMonths(-1);
+
+            Assert.Throws<ArgumentException>(() =>
+                new Payment((decimal)123.56, "EUR",
+                    new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                        expiredDate.Month, expiredDate.Year, 765))
+            );
+        }
+
     }
 }
