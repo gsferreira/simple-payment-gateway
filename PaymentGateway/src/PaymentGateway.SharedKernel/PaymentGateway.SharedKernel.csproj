@@ -8,9 +8,4 @@
     <PackageReference Include="MediatR" Version="8.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PaymentGateway.Core\PaymentGateway.Core.csproj" />
-    <ProjectReference Include="..\PaymentGateway.SharedKernel\PaymentGateway.SharedKernel.csproj" />
-  </ItemGroup>
-
 </Project>
