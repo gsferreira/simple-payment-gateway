@@ -10,6 +10,6 @@ namespace PaymentGateway.SharedKernel
     {
         Task<T> Get(Guid aggregateId);
 
-        Task Save(Guid aggregateId, T data, int? expectedVersion = null);
+        Task Save(T data, int? expectedVersion = null);
     }
 }

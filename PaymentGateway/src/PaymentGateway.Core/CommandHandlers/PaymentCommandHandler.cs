@@ -7,7 +7,7 @@ using PaymentGateway.SharedKernel;
 
 namespace PaymentGateway.Core.CommandHandlers
 {
-    public class PaymentCommandHandler : IRequestHandler<PaymentCommand, bool>
+    public class PaymentCommandHandler : IRequestHandler<PaymentCommand, Payment>
     {
         private readonly IEventStoreRepository<Payment> _eventStore;
 
@@ -16,15 +16,15 @@ namespace PaymentGateway.Core.CommandHandlers
             _eventStore = eventStore;
         }
 
-        public async Task<bool> Handle(PaymentCommand request, CancellationToken cancellationToken)
+        public async Task<Payment> Handle(PaymentCommand request, CancellationToken cancellationToken)
         {
             var payment = new Payment(request.Amount, request.Currency,
                 new PaymentCard(request.Card.Type, request.Card.Name, request.Card.Number, request.Card.ExpireMonth,
                     request.Card.ExpireYear, request.Card.CVV));
 
-            await _eventStore.Save(payment.Id, payment);
+            await _eventStore.Save(payment);
 
-            return true;
+            return payment;
         }
     }
 }

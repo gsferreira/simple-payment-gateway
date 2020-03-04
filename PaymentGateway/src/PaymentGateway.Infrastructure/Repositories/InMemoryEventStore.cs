@@ -25,8 +25,10 @@ namespace PaymentGateway.Infrastructure.Repositories
             return Task.FromResult(CreateAggregate(aggregateEvents));
         }
 
-        public async Task Save(Guid aggregateId, T data, int? expectedVersion = null)
+        public async Task Save(T data, int? expectedVersion = null)
         {
+            var aggregateId = data.Id;
+
             // try to get event descriptors list for given aggregate id
             // otherwise -> create empty dictionary
             if (!_current.TryGetValue(aggregateId, out var eventDescriptors))
@@ -63,9 +65,7 @@ namespace PaymentGateway.Infrastructure.Repositories
         // used to build up an aggregate from its history (Domain.LoadsFromHistory)
         private List<EntityEvent> GetEventsForAggregate(Guid aggregateId)
         {
-            List<EventDescriptor> eventDescriptors;
-
-            if (!_current.TryGetValue(aggregateId, out eventDescriptors))
+            if (!_current.TryGetValue(aggregateId, out var eventDescriptors))
             {
                 throw new InvalidOperationException("Aggregate not found");
             }

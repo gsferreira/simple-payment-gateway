@@ -1,6 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PaymentGateway.Api.Application.Queries;
+using PaymentGateway.Api.Models;
 using PaymentGateway.Core.Commands;
 
 namespace PaymentGateway.Api.Controllers
@@ -21,10 +24,22 @@ namespace PaymentGateway.Api.Controllers
         {
             var result = await _mediator.Send(command);
 
-            if (!result)
+            if (result == null)
                 return BadRequest();
 
-            return Created($"api/payments/", null); //TODO: Return created status code
+            return Created($"api/payments/{result.Id}", PaymentDto.FromPayment(result));
         }
+
+        [HttpGet("{id:Guid}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var result = await _mediator.Send<PaymentQuery.Result>(new PaymentQuery(id));
+
+            if (result?.Data == null)
+                return NotFound();
+
+            return Ok(result.Data);
+        }
+
     }
 }

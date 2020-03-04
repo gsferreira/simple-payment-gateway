@@ -7,7 +7,7 @@ using PaymentGateway.SharedKernel;
 
 namespace PaymentGateway.Core.Commands
 {
-    public class PaymentCommand : IRequest<bool>
+    public class PaymentCommand : IRequest<Payment>
     {
         public decimal Amount { get; set; }
         public string Currency { get; set; }
