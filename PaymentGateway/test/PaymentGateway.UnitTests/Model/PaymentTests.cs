@@ -57,5 +57,39 @@ namespace PaymentGateway.UnitTests.Model
             );
         }
 
+        [Fact]
+        public void Processed_WithBankId_StateChanged()
+        {
+            var payment = new Payment((decimal)123.56, "EUR",
+                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                    DateTime.Today.Month, DateTime.Today.Year, 765));
+
+            payment.Processed("124567");
+
+            Assert.Equal(PaymentStates.Processed, payment.State);
+        }
+
+        [Fact]
+        public void Processed_WithoutBankId_FailsWithException()
+        {
+            var payment = new Payment((decimal) 123.56, "EUR",
+                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                    DateTime.Today.Month, DateTime.Today.Year, 765));
+
+            Assert.Throws<ArgumentNullException>(() => payment.Processed(""));
+        }
+
+        [Fact]
+        public void Rejected_StateChanged()
+        {
+            var payment = new Payment((decimal)123.56, "EUR",
+                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                    DateTime.Today.Month, DateTime.Today.Year, 765));
+
+            payment.Rejected("EXPIRED");
+
+            Assert.Equal(PaymentStates.Rejected, payment.State);
+        }
+
     }
 }
