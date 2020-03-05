@@ -19,7 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.FunctionalTests", "PaymentGateway\test\PaymentGateway.FunctionalTests\PaymentGateway.FunctionalTests.csproj", "{8D077DC8-36D7-426B-88B5-4E786AC21C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.SharedKernel", "PaymentGateway\src\PaymentGateway.SharedKernel\PaymentGateway.SharedKernel.csproj", "{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.SharedKernel", "PaymentGateway\src\PaymentGateway.SharedKernel\PaymentGateway.SharedKernel.csproj", "{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BankSimulator", "BankSimulator", "{3F36B147-A7BA-4BE7-AA71-735A7F0BCFFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99A0D11D-F5F3-4173-B9D8-069B5386242A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeBank", "BankSimulator\src\FakeBank\FakeBank.csproj", "{D6A1D559-D49E-414D-8EB6-1885A6235492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,10 @@ Global
 		{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +74,8 @@ Global
 		{ACA5DE02-14CD-4175-9FB2-704DC18F0F62} = {55F11C7F-9074-400A-BDC5-6F4148B55EC5}
 		{8D077DC8-36D7-426B-88B5-4E786AC21C2E} = {55F11C7F-9074-400A-BDC5-6F4148B55EC5}
 		{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40} = {EB7A4138-D05E-469A-B9C6-94FE6AF1D672}
+		{99A0D11D-F5F3-4173-B9D8-069B5386242A} = {3F36B147-A7BA-4BE7-AA71-735A7F0BCFFD}
+		{D6A1D559-D49E-414D-8EB6-1885A6235492} = {99A0D11D-F5F3-4173-B9D8-069B5386242A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88482A57-F387-4F97-B76B-7092748C3233}
