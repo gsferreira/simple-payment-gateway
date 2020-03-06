@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using PaymentGateway.Core.Model;
 
-namespace PaymentGateway.Api.Models
+namespace PaymentGateway.Application.Queries
 {
     public class PaymentDto
     {

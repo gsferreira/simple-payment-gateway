@@ -2,9 +2,8 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PaymentGateway.Api.Application.Commands;
-using PaymentGateway.Api.Application.Queries;
-using PaymentGateway.Api.Models;
+using PaymentGateway.Application.Commands;
+using PaymentGateway.Application.Queries;
 
 namespace PaymentGateway.Api.Controllers
 {

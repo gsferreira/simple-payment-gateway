@@ -1,9 +1,8 @@
 ﻿using System;
 using MediatR;
-using PaymentGateway.Api.Models;
 using PaymentGateway.Core.Model;
 
-namespace PaymentGateway.Api.Application.Queries
+namespace PaymentGateway.Application.Queries
 {
     public class PaymentQuery : IRequest<PaymentQuery.Result>, IRequest
     {

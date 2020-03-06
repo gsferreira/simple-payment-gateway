@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using PaymentGateway.Api.Application.Queries;
+using PaymentGateway.Application.Queries;
 using PaymentGateway.Core.Model;
 using PaymentGateway.SharedKernel;
 
-namespace PaymentGateway.Api.Application.QueryHandlers
+namespace PaymentGateway.Application.QueryHandlers
 {
     public class PaymentQueryHandler :
         IRequestHandler<PaymentQuery, PaymentQuery.Result>

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99A0D11D-F5F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeBank", "BankSimulator\src\FakeBank\FakeBank.csproj", "{D6A1D559-D49E-414D-8EB6-1885A6235492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Application", "PaymentGateway\src\PaymentGateway.Application\PaymentGateway.Application.csproj", "{84860F06-D43F-4881-8541-8978CC09E7F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A1D559-D49E-414D-8EB6-1885A6235492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84860F06-D43F-4881-8541-8978CC09E7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84860F06-D43F-4881-8541-8978CC09E7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84860F06-D43F-4881-8541-8978CC09E7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84860F06-D43F-4881-8541-8978CC09E7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{A3A01EF6-AB5B-4CAC-BF8B-A4F669964B40} = {EB7A4138-D05E-469A-B9C6-94FE6AF1D672}
 		{99A0D11D-F5F3-4173-B9D8-069B5386242A} = {3F36B147-A7BA-4BE7-AA71-735A7F0BCFFD}
 		{D6A1D559-D49E-414D-8EB6-1885A6235492} = {99A0D11D-F5F3-4173-B9D8-069B5386242A}
+		{84860F06-D43F-4881-8541-8978CC09E7F7} = {EB7A4138-D05E-469A-B9C6-94FE6AF1D672}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88482A57-F387-4F97-B76B-7092748C3233}

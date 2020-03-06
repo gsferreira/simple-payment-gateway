@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using PaymentGateway.Core.Model;
 
-namespace PaymentGateway.Api.Application.Commands
+namespace PaymentGateway.Application.Commands
 {
     public class PaymentCommand : IRequest<Payment>
     {

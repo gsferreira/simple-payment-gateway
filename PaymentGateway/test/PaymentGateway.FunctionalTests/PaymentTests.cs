@@ -3,10 +3,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using PaymentGateway.Api;
-using PaymentGateway.Api.Models;
 using PaymentGateway.FunctionalTests.Extensions;
 using Xunit;
 using FluentAssertions;
+using PaymentGateway.Application.Queries;
 
 
 namespace PaymentGateway.FunctionalTests

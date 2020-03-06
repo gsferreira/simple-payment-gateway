@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using PaymentGateway.Api.Application.Commands;
+using PaymentGateway.Application.Commands;
 using PaymentGateway.Core.Model;
 using PaymentGateway.SharedKernel;
 
-namespace PaymentGateway.Api.Application.CommandHandlers
+namespace PaymentGateway.Application.CommandHandlers
 {
     public class PaymentCommandHandler : IRequestHandler<PaymentCommand, Payment>
     {
