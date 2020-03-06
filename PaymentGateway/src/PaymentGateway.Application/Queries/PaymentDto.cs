@@ -9,7 +9,7 @@ namespace PaymentGateway.Application.Queries
         public decimal Amount { get; set; }
         public string Currency { get; set; }
         public PaymentCardDto Card { get; set; }
-
+        
         public static PaymentDto FromPayment(Payment payment)
         {
             return new PaymentDto()

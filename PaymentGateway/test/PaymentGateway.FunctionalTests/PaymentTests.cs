@@ -6,7 +6,10 @@ using PaymentGateway.Api;
 using PaymentGateway.FunctionalTests.Extensions;
 using Xunit;
 using FluentAssertions;
+using Moq;
+using PaymentGateway.Application.BankProviders;
 using PaymentGateway.Application.Queries;
+using PaymentGateway.Core.Model;
 
 
 namespace PaymentGateway.FunctionalTests

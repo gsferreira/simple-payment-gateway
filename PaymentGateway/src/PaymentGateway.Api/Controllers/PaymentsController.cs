@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PaymentGateway.Application.Commands;
 using PaymentGateway.Application.Queries;
+using PaymentGateway.Core.Model;
 
 namespace PaymentGateway.Api.Controllers
 {
@@ -21,10 +22,13 @@ namespace PaymentGateway.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PaymentCommand command)
         {
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send<Payment>(command);
 
             if (result == null)
                 return BadRequest();
+
+            if (result.State == PaymentStates.Rejected)
+                return BadRequest(result.RejectionReason);
 
             return Created($"api/payments/{result.Id}", PaymentDto.FromPayment(result));
         }

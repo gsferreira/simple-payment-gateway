@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PaymentGateway.Api;
+using PaymentGateway.Application.BankProviders;
 
 namespace PaymentGateway.FunctionalTests
 {
@@ -18,7 +19,7 @@ namespace PaymentGateway.FunctionalTests
                 .UseSolutionRelativeContentRoot("PaymentGateway/src/PaymentGateway.Api")
                 .ConfigureServices(services =>
                 {
-                    
+                    services.AddScoped<IAcquiringBank, Fakes.AcquiringBankFake>();
                 });
         }
     }
