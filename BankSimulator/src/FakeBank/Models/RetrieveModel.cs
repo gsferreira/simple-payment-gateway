@@ -9,7 +9,7 @@ namespace FakeBank.Models
     {
         public decimal Amount { get; set; }
         public string CardName { get; set; }
-        public long CardNumber { get; set; }
+        public string CardNumber { get; set; }
         public int CardExpireMonth { get; set; }
         public int CardExpireYear { get; set; }
         public int CardCVV { get; set; }

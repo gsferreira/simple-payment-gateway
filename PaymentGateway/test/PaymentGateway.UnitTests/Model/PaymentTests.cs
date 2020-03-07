@@ -12,7 +12,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Create_WithValidData_Success()
         {
             var payment = new Payment((decimal)123.56, "EUR",
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     12, DateTime.Today.Year, 765));
 
             Assert.Single(payment.GetUncommittedChanges());
@@ -23,7 +23,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Create_WithAmountZero_FailsWithException()
         {
             Assert.Throws<ArgumentException>(() => new Payment(0, "EUR",
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     12, DateTime.Today.Year, 765))
             );
         }
@@ -32,7 +32,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Create_WithoutCurrency_FailsWithException()
         {
             Assert.Throws<ArgumentNullException>(() => new Payment(2, null,
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     12, DateTime.Today.Year, 765))
             );
         }
@@ -52,7 +52,7 @@ namespace PaymentGateway.UnitTests.Model
 
             Assert.Throws<ArgumentException>(() =>
                 new Payment((decimal)123.56, "EUR",
-                    new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                    new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                         expiredDate.Month, expiredDate.Year, 765))
             );
         }
@@ -61,7 +61,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Processed_WithBankId_StateChanged()
         {
             var payment = new Payment((decimal)123.56, "EUR",
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     DateTime.Today.Month, DateTime.Today.Year, 765));
 
             payment.Processed("124567");
@@ -73,7 +73,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Processed_WithoutBankId_FailsWithException()
         {
             var payment = new Payment((decimal) 123.56, "EUR",
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     DateTime.Today.Month, DateTime.Today.Year, 765));
 
             Assert.Throws<ArgumentNullException>(() => payment.Processed(""));
@@ -83,7 +83,7 @@ namespace PaymentGateway.UnitTests.Model
         public void Rejected_StateChanged()
         {
             var payment = new Payment((decimal)123.56, "EUR",
-                new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+                new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     DateTime.Today.Month, DateTime.Today.Year, 765));
 
             payment.Rejected("EXPIRED");

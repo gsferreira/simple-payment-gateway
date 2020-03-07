@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace PaymentGateway.Application.BankProviders
+﻿namespace PaymentGateway.Application.BankProviders
 {
     public class BankPaymentResult
     {

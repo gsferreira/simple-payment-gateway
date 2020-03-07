@@ -13,7 +13,7 @@ namespace PaymentGateway.Application.Commands
         {
             public string Type { get; set; }
             public string Name { get; set; }
-            public long Number { get; set; }
+            public string Number { get; set; }
             public int ExpireMonth { get; set; }
             public int ExpireYear { get; set; }
             public int CVV { get; set; }

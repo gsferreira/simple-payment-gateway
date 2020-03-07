@@ -22,7 +22,7 @@ namespace PaymentGateway.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PaymentCommand command)
         {
-            var result = await _mediator.Send<Payment>(command);
+            var result = await _mediator.Send(command);
 
             if (result == null)
                 return BadRequest();
@@ -43,6 +43,5 @@ namespace PaymentGateway.Api.Controllers
 
             return Ok(result.Data);
         }
-
     }
 }

@@ -10,8 +10,8 @@ namespace PaymentGateway.Application.CommandHandlers
 {
     public class PaymentCommandHandler : IRequestHandler<PaymentCommand, Payment>
     {
-        private readonly IEventStoreRepository<Payment> _eventStore;
         private readonly IAcquiringBank _acquiringBank;
+        private readonly IEventStoreRepository<Payment> _eventStore;
 
         public PaymentCommandHandler(IEventStoreRepository<Payment> eventStore,
             IAcquiringBank acquiringBank)

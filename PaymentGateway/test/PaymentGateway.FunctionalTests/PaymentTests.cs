@@ -45,6 +45,21 @@ namespace PaymentGateway.FunctionalTests
             paymentDetails.Should().BeEquivalentTo(expectedPaymentDetails);
         }
 
+        [Fact]
+        public async Task Get_ExistingPayment_HasMaskedCardNumber()
+        {
+            dynamic payment = Payment();
+            var response = await _client.PostAsJsonAsync("/api/payments", Payment());
+            
+            response.EnsureSuccessStatusCode();
+            var createResponse = await response.Content.ReadAsJsonAsync<PaymentDto>();
+
+            var getResponse = await _client.GetAsync($"/api/payments/{createResponse.Id}");
+            var paymentDetails = await getResponse.Content.ReadAsJsonAsync<PaymentDto>();
+
+            Assert.NotEqual(payment.card.number, paymentDetails.Card.Number);
+        }
+
         private static object Payment()
         => new
         {
@@ -52,7 +67,7 @@ namespace PaymentGateway.FunctionalTests
             {
                 type = "VISA",
                 name = "Tyrion Lannister",
-                number = 4532367296473418,
+                number = "4532367296473418",
                 expireMonth = 12,
                 expireYear = DateTime.Today.Year,
                 cvv = 765

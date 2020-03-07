@@ -21,7 +21,7 @@ namespace FakeBank.Controllers
                     DateTime.Today.Day))
                 return BadRequest("EXPIRED");
 
-            if(retrieveModel.CardNumber == 99999)
+            if(retrieveModel.CardNumber == "9999999999999999")
                 return BadRequest("INVALID");
 
             return Ok(new RetrieveResponseModel()

@@ -12,7 +12,7 @@ namespace PaymentGateway.UnitTests.Model
         [Fact]
         public void Create_WithValidData_Success()
         {
-            var payment = new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+            var payment = new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     12, DateTime.Today.Year, 765);
 
             Assert.NotNull(payment.Name);
@@ -22,7 +22,7 @@ namespace PaymentGateway.UnitTests.Model
         [Fact]
         public void Create_WithEmptyName_FailsWithException()
         {
-            Assert.Throws<ArgumentNullException>(() => new PaymentCard("VISA", "", 4532367296473418,
+            Assert.Throws<ArgumentNullException>(() => new PaymentCard("VISA", "", "4532367296473418",
                     12, DateTime.Today.Year, 765)
             );
         }
@@ -30,7 +30,7 @@ namespace PaymentGateway.UnitTests.Model
         [Fact]
         public void Create_WithInvalidCVV_FailsWithException()
         {
-            Assert.Throws<ArgumentException>(() => new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+            Assert.Throws<ArgumentException>(() => new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                     12, DateTime.Today.Year, 2)
             );
         }
@@ -38,7 +38,7 @@ namespace PaymentGateway.UnitTests.Model
         [Fact]
         public void Create_WithInvalidMonth_FailsWithException()
         {
-            Assert.Throws<ArgumentException>(() => new PaymentCard("VISA", "Tyrion Lannister", 4532367296473418,
+            Assert.Throws<ArgumentException>(() => new PaymentCard("VISA", "Tyrion Lannister", "4532367296473418",
                 13, DateTime.Today.Year,765 )
             );
         }
